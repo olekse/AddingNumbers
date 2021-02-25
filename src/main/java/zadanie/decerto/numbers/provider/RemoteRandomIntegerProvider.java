@@ -9,10 +9,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 @Component
-public class RemoteRandomIntegerProvider implements DataProvider {
+public class RemoteRandomIntegerProvider implements NumberProvider {
 
     @Override
-    public Object provide() {
+    public Number provide() {
         URL url;
         try {
             url = new URL("https://www.random.org/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new");

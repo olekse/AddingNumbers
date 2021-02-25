@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public interface DataProcessor {
 
-    Optional<String> process(List<Object> operands);
+    Optional<Number> process(List<Number> operands);
     String operation();
 
 }

@@ -1,4 +1,4 @@
-package zadanie.decerto.numbers.model;
+package zadanie.decerto.numbers.model.db;
 
 import lombok.Data;
 
