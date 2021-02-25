@@ -2,6 +2,8 @@ package zadanie.decerto.numbers.processor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import zadanie.decerto.numbers.model.number.ProvidedBigDecimal;
+import zadanie.decerto.numbers.model.number.ProvidedData;
 import zadanie.decerto.numbers.utils.LogUtils;
 
 import java.math.BigDecimal;
@@ -14,16 +16,16 @@ import java.util.Optional;
 public class Multiplier implements DataProcessor {
 
     @Override
-    public Optional<Number> process(List<Number> operands) {
-        BigDecimal sum = BigDecimal.ONE;
+    public Optional<ProvidedData> process(List<ProvidedData> operands) {
+        BigDecimal product = BigDecimal.ONE;
         try {
-            for (Number operand : operands)
-                sum = sum.multiply(new BigDecimal(operand.toString()));
+            for (ProvidedData operand : operands)
+                product = product.multiply(operand.asBigDecimal());
         } catch (Exception e) {
             log.error(LogUtils.failedOperationMessage(operands, operation()));
             return Optional.empty();
         }
-        return Optional.of(sum);
+        return Optional.of(new ProvidedBigDecimal(product));
     }
 
     @Override
