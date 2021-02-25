@@ -15,7 +15,7 @@
 <div class="container">
     <c:choose>
         <c:when test="${reportObject.isSuccess()}">
-            Successful operation. Result - ${reportObject.getResult()}
+            Successful operation. Result: ${reportObject.getResult()}
         </c:when>
         <c:otherwise>
             Failed operation.
